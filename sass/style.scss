@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+@import "normalize";
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: #f8f8f8c0;
+}
+
+%border-brand {
+    border: {
+        width: 1px;
+        style: solid;
+        color: #f8f8f8c0;
+        radius: 5px;
+    }
+    box-shadow: 2px 2px 5px #f8f8f8c0;
+}
+
+%btn-delete-brand {
+    border: none;
+    padding: 0;
+    margin: auto;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: initial;
+    color: #111;
+    &:hover {
+        color: #57606f;
+        cursor: pointer;
+    }
+}
+
+.create-column,
+.add-card {
+    @extend %border-brand;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f8f8f8c0;
+    .fa-plus-circle {
+        padding-left: 5px;
+        &:hover {
+            color: #57606f;
+        }
+    }
+    &:hover {
+        background-color: #f8f8f8c0;
+        cursor: pointer;
+    }
+}
+
+.board {
+    text-align: center;
+    color: #2f3542;
+    .column-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 30px;
+        justify-content: space-around;
+        .column {
+            @extend %border-brand;
+            background-color: #eeeff1;
+            min-width: 200px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            position: relative; //for buttons
+            .btn-delete {
+                @extend %btn-delete-brand;
+            }
+            h2 {
+                margin: 0;
+                padding: 15px;
+                background-color: #70a1ff;
+                border-top-left-radius: inherit;
+                border-top-right-radius: inherit;
+                color: #f1f2f6;
+                font-size: 22px;
+                font-weight: 500;
+            }
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                li {
+                    @extend %border-brand;
+                    margin: 10px;
+                    padding: 15px 10px;
+                    display: flex;
+                    justify-content: flex-start;
+                    background-color: #f1f2f6;
+                    position: relative; //for buttons
+                    .btn-delete {
+                        @extend %btn-delete-brand;
+                    }
+                    p {
+                        overflow-wrap: break-word;
+                    }
+                }
+            }
+        }
+        // @media (max-width: 767px) {
+        //     flex-direction: column;
+        //     align-items: center;
+        //     .column {
+        //         margin: 15px;
+        //     }
+        // }
+    }
+}
